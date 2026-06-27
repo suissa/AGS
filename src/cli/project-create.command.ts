@@ -1,3 +1,4 @@
+import inquirer from 'inquirer';
 import { writeConfig } from '../config/write-config.js';
 import { AGSConfig } from '../config/ags-config.schema.js';
 import { ProjectProvisioner } from '../projects/project-provisioner.js';
@@ -17,8 +18,6 @@ export interface ProjectCreateOptions {
 }
 
 async function promptInteractive(): Promise<ProjectCreateOptions> {
-  const { default: inquirer } = await import('inquirer');
-
   const answers = await inquirer.prompt([
     {
       type: 'input',
